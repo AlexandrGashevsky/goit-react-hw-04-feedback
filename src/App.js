@@ -9,7 +9,6 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-
   const countTotalFeedback = () => {
     return good + neutral + bad;
   };
@@ -20,7 +19,6 @@ const App = () => {
     }
     return Math.round(percentage);
   };
-
   const onLeaveFeedback = e => {
     switch (e.target.name) {
       case 'good':
@@ -37,11 +35,10 @@ const App = () => {
         return;
     }
   };
-
   return (
     <div>
       <Section title="Please leave feedback">
-        <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={onLeaveFeedback} />
+        <FeedbackOptions options={Object.keys({ good, neutral, bad })} onLeaveFeedback={onLeaveFeedback} />
       </Section>
 
       <Section title="Statistic">
